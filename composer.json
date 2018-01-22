@@ -18,7 +18,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Mares29\\Breadcrumb\\": "src"
+            "Mares29\\Breadcrumb\\": "src/"
         }
     },
     "extra": {
@@ -27,7 +27,7 @@
                 "Mares29\\Breadcrumb\\BreadcrumbServiceProvider"
             ],
             "aliases": {
-                "Breadcrumb": "Mares29\\Breadcrumb\\Facades\\Breadcrumb"
+                "Breadcrumb": "Mares29\\Breadcrumb\\Facades\\BreadcrumbFacade"
             }
         }
     }

@@ -10,13 +10,15 @@ namespace Mares29\Breadcrumb\Facades;
 
 
 use Illuminate\Support\Facades\Facade;
+use Mares29\Breadcrumb\Breadcrumb;
+
 
 /**
  * Class Search
  *
  * @package App\Facades
  */
-class Breadcrumb extends Facade
+class BreadcrumbFacade extends Facade
 {
 
 	/**
@@ -24,6 +26,6 @@ class Breadcrumb extends Facade
 	 */
 	protected static function getFacadeAccessor()
 	{
-		return 'breadcrumb';
+		return Breadcrumb::class;
 	}
 }

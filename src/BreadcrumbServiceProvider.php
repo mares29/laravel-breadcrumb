@@ -2,8 +2,9 @@
 
 namespace Mares29\Breadcrumb;
 
+
 use Illuminate\Support\ServiceProvider;
-use Mares29\Breadcrumb\Facades\Breadcrumb;
+use Mares29\Breadcrumb\Facades\BreadcrumbFacade;
 
 class BreadcrumbServiceProvider extends ServiceProvider
 {
@@ -15,7 +16,13 @@ class BreadcrumbServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
-		//
+		$this->app->singleton(Breadcrumb::class, BreadcrumbFacade::class);
+
+		$this->loadViewsFrom(__DIR__ . '/views', 'breacrumb');
+
+		$this->publishes([
+			__DIR__ . '/views' => base_path('resources/views/vendor/breadcrumb'),
+		]);
 	}
 
 
@@ -27,12 +34,5 @@ class BreadcrumbServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
-		$this->app->singleton("breadcrumb", Breadcrumb::class);
-
-		$this->loadViewsFrom(__DIR__ . '/views', 'breacrumb');
-
-		$this->publishes([
-			__DIR__ . '/views' => base_path('resources/views/vendor/breadcrumb')
-		]);
 	}
 }

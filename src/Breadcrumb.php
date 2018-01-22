@@ -6,11 +6,10 @@
  * Time: 22:26
  */
 
-namespace App;
+namespace Mares29\Breadcrumb;
 
 
 use Illuminate\Support\Collection;
-use Mares29\Breadcrumb\Link;
 
 /**
  * Class Breadcrumb
