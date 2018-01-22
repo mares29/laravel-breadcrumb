@@ -1,0 +1,34 @@
+{
+    "name": "mares29/laravel-breadcrumb",
+    "description": "Breadcrumb for Laravel",
+    "keywords": [
+        "mares29",
+        "laravel",
+        "breadcrumb"
+    ],
+    "homepage": "https://github.com/mares29/laravel-breadcrumb",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Karel Mares",
+            "email": "karel@mares29.cz",
+            "homepage": "https://karelmares.cz",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Mares29\\Breadcrumb\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mares29\\Breadcrumb\\BreadcrumbServiceProvider"
+            ],
+            "aliases": {
+                "Breadcrumb": "Mares29\\Breadcrumb\\Facades\\Breadcrumb"
+            }
+        }
+    }
+}
