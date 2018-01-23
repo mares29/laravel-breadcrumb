@@ -45,13 +45,13 @@ And finaly render breadcrumb using render method in blade template.
 
 By default, first link (home link) is set automaticly with `config('app.name')` and links to `url("/")`. You can modify this by
 
-```
+``` php
 Breadcrumb::setHomeLink("new home link", "/home.html");
 ```
 
 **Need to modify breadcrumb html?** Use `vendor:publish` command and export breadcrumb view into resources folder.
 
-```
+``` terminal
 php artisan vendor:publish --provider="Mares29\Breadcrumb\BreadcrumbServiceProvider"
 ```
 
