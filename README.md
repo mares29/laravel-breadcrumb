@@ -1,12 +1,4 @@
-# Laravel Breadcrumb
-
-[![Latest Version on Packagist][ico-version]][link-packagist]
-[![Software License][ico-license]](LICENSE.md)
-[![Build Status][ico-travis]][link-travis]
-[![Coverage Status][ico-scrutinizer]][link-scrutinizer]
-[![Quality Score][ico-code-quality]][link-code-quality]
-[![Total Downloads][ico-downloads]][link-downloads]
-
+# Breadcrumb for Laravel 5
 
 This package provide simple way to implement breadcrumb for your laravel 5 application.
 
@@ -18,15 +10,27 @@ Via Composer
 $ composer require mares29/laravel-breadcrumb
 ```
 
+Laravel 5.5+ automaticly register service provider and set Alias thanks to auto-discovery. With lower laravel version add to **app.php** 
+
+``` php
+'providers' => [
+	\Mares29\Breadcrumb\BreadcrumbServiceProvider::class,
+]
+
+'aliases' => [
+	'Breadcrumb' => \Mares29\Breadcrumb\Facades\BreadcrumbFacade::class,
+]
+```
+
 ## Usage
 
-You can use Facade to set breadcrumb links.
+Use Facade to add breadcrumb links.
 
 ``` php
 Breadcrumb::addLink("link title", "link route");
 ```
 
-You can also add more links
+You can also add more links.
 
 ``` php
 Breadcrumb::addLink("link title", "link route")
@@ -39,44 +43,23 @@ And finaly render breadcrumb using render method in blade template.
 {!! Breadcrumb::render() !!}
 ```
 
-## Change log
+By default, first link (home link) is set automaticly with `config('app.name')` and links to `url("/")`. You can modify this by
 
-Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
-
-## Testing
-
-``` bash
-$ composer test
+```
+Breadcrumb::setHomeLink("new home link", "/home.html");
 ```
 
-## Contributing
+**Need to modify breadcrumb html?** Use `vendor:publish` command and export breadcrumb view into resources folder.
 
-Please see [CONTRIBUTING](CONTRIBUTING.md) and [CODE_OF_CONDUCT](CODE_OF_CONDUCT.md) for details.
-
-## Security
-
-If you discover any security related issues, please email karel@mares29.cz instead of using the issue tracker.
+```
+php artisan vendor:publish --provider="Mares29\Breadcrumb\BreadcrumbServiceProvider"
+```
 
 ## Credits
 
-- [Karel Mares][link-author]
-- [All Contributors][link-contributors]
+- [Karel Mares][https://github.com/mares29]
 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
 
-[ico-version]: https://img.shields.io/packagist/v/mares29/Laravel Breadcrumb.svg?style=flat-square
-[ico-license]: https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/mares29/Laravel Breadcrumb/master.svg?style=flat-square
-[ico-scrutinizer]: https://img.shields.io/scrutinizer/coverage/g/mares29/Laravel Breadcrumb.svg?style=flat-square
-[ico-code-quality]: https://img.shields.io/scrutinizer/g/mares29/Laravel Breadcrumb.svg?style=flat-square
-[ico-downloads]: https://img.shields.io/packagist/dt/mares29/Laravel Breadcrumb.svg?style=flat-square
-
-[link-packagist]: https://packagist.org/packages/mares29/Laravel Breadcrumb
-[link-travis]: https://travis-ci.org/mares29/Laravel Breadcrumb
-[link-scrutinizer]: https://scrutinizer-ci.com/g/mares29/Laravel Breadcrumb/code-structure
-[link-code-quality]: https://scrutinizer-ci.com/g/mares29/Laravel Breadcrumb
-[link-downloads]: https://packagist.org/packages/mares29/Laravel Breadcrumb
-[link-author]: https://github.com/mares29
-[link-contributors]: ../../contributors
