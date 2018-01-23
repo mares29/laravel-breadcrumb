@@ -34,7 +34,10 @@ class Breadcrumb
 	{
 		$this->links = new Collection();
 
-		$this->setHomeLink("home", url("/"));
+		$this->setHomeLink(
+			config('app.name'),
+			url("/")
+		);
 	}
 
 
