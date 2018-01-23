@@ -12,7 +12,7 @@ namespace Mares29\Breadcrumb;
 /**
  * Class Link
  *
- * @package App
+ * @package Mares29\Breadcrumb
  */
 class Link
 {

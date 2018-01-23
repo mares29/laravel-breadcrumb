@@ -1,14 +1,15 @@
-<nav class="c-breadcrumb">
-    <ul>
-        <li><a href="{{ route("home") }}"><i class="ico-home"></i></a></li>
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
         @foreach($links as $link)
-            <li>
-                @if($loop->last)
-                    {{ $link->title }}
-                @else
-                    <a href="{{ $link->url }}">{{ $link->title }}</a>
-                @endif
-            </li>
+            @if($loop->last)
+                <li aria-current="page">{{ $link->title }}</li>
+            @else
+                <li>
+                    <a href="{{ $link->url }}">
+                        <span>{{ $link->title }}</span>
+                    </a>
+                </li>
+            @endif
         @endforeach
-    </ul>
+    </ol>
 </nav>

@@ -11,10 +11,11 @@ namespace Mares29\Breadcrumb;
 
 use Illuminate\Support\Collection;
 
+
 /**
  * Class Breadcrumb
  *
- * @package App
+ * @package Mares29\Breadcrumb
  */
 class Breadcrumb
 {
@@ -32,6 +33,8 @@ class Breadcrumb
 	public function __construct()
 	{
 		$this->links = new Collection();
+
+		$this->setHomeLink("home", url("/"));
 	}
 
 
@@ -64,6 +67,20 @@ class Breadcrumb
 	public function addLink($title, $route)
 	{
 		$this->links->push(new Link($title, $route));
+
+		return $this;
+	}
+
+
+
+	/**
+	 * @param $title
+	 * @param $route
+	 * @return $this
+	 */
+	public function setHomeLink($title, $route)
+	{
+		$this->links->put(0, new Link($title, $route));
 
 		return $this;
 	}

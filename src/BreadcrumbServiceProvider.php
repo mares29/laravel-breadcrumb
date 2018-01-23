@@ -4,10 +4,23 @@ namespace Mares29\Breadcrumb;
 
 
 use Illuminate\Support\ServiceProvider;
-use Mares29\Breadcrumb\Facades\BreadcrumbFacade;
 
+/**
+ * Class BreadcrumbServiceProvider
+ *
+ * @package Mares29\Breadcrumb
+ */
 class BreadcrumbServiceProvider extends ServiceProvider
 {
+
+	/**
+	 * Indicates if loading of the provider is deferred.
+	 *
+	 * @var bool
+	 */
+	protected $defer = FALSE;
+
+
 
 	/**
 	 * Perform post-registration booting of services.
@@ -16,9 +29,9 @@ class BreadcrumbServiceProvider extends ServiceProvider
 	 */
 	public function boot()
 	{
-		$this->app->singleton(Breadcrumb::class, BreadcrumbFacade::class);
+		$this->app->singleton('breadcrumb', Breadcrumb::class);
 
-		$this->loadViewsFrom(__DIR__ . '/views', 'breacrumb');
+		$this->loadViewsFrom(__DIR__ . '/views', 'breadcrumb');
 
 		$this->publishes([
 			__DIR__ . '/views' => base_path('resources/views/vendor/breadcrumb'),
@@ -34,5 +47,17 @@ class BreadcrumbServiceProvider extends ServiceProvider
 	 */
 	public function register()
 	{
+	}
+
+
+
+	/**
+	 * Get the services provided by the provider.
+	 *
+	 * @return array
+	 */
+	public function provides()
+	{
+		return [Breadcrumb::class];
 	}
 }
