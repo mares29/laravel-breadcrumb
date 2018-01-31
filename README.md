@@ -57,7 +57,7 @@ php artisan vendor:publish --provider="Mares29\Breadcrumb\BreadcrumbServiceProvi
 
 ## Credits
 
-- [Karel Mares][https://github.com/mares29]
+- [Karel Mares](https://github.com/mares29)
 
 ## License
 
